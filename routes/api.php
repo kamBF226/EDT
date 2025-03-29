@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FirebaseTestController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ResourceController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,3 +25,15 @@ Route::get('/test', function (Request $request) {
     return response()->json(['message' => 'API works']);
 });
 Route::get('/firebase-test', [FirebaseTestController::class, 'test']);
+
+Route::post('/users', [UserController::class, 'create']);
+
+Route::get('/users', [UserController::class, 'getByEmail']);
+
+
+Route::post('/filieres', [ResourceController::class, 'createFiliere']);
+Route::get('/filieres', [ResourceController::class, 'getFilieres']);
+Route::post('/promotions', [ResourceController::class, 'createPromotion']);
+Route::get('/promotions', [ResourceController::class, 'getPromotions']);
+Route::post('/salles', [ResourceController::class, 'createSalle']);
+Route::get('/salles', [ResourceController::class, 'getSalles']);
